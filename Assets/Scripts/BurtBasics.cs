@@ -15,7 +15,7 @@ public class BurtBasics : MonoBehaviour
     private ConnectionSetter    _robot;                             // Access the libraries used for robot control
    // public  Text                messageToUser;
     public  GameObject          cursor;                             // Cursor of the robot's end effector
-    public  GameObject          target;
+    //public  GameObject          target;
     //private float               forceMagnitude;                     // Magnitude of the force to be applied on the robot
     //private KeyCode             currentKey;                         // Create a variable that reads the input-key-board
     //private string              forceDirection;                     // String that stores the direction of the force based on arrow-key pressed
@@ -37,14 +37,14 @@ public class BurtBasics : MonoBehaviour
     {
         _robot  =  GameObject.Find("ConnectionSetter").GetComponent<ConnectionSetter>();                                    // Setup connection with the robot
         cursor  =  GameObject.Find("Cursor");
-        target =  GameObject.Find("Target");
+        //target =  GameObject.Find("Target");
         StartTimer();
 
 
         if (_robot != null)
         {
-           // _robot.RegisterControlFunction("haptics", CalcForces);
-            _robot.SetActiveControlFunction("haptics");
+            //_robot.RegisterControlFunction("haptics", CalcForces);
+            //_robot.SetActiveControlFunction("haptics");
             _robot.EnableRobot();                                                                                          // Enable the robot - switching from passive resistance mode to transparency mode
             
         }
@@ -242,16 +242,16 @@ public class BurtBasics : MonoBehaviour
         }
     }
 
-*/
+
     // Check if the target is reached
     void TargetReached() 
     {
-        /*
+        
             if (_robot.GetToolPosition().x > float.Parse(targetX[0])-0.05 && _robot.GetToolPosition().x < float.Parse(targetX[0])+0.05 && _robot.GetToolPosition().y > float.Parse(targetY[0])-0.05 && _robot.GetToolPosition().y < float.Parse(targetY[0])+0.05 && _robot.GetToolPosition().z > float.Parse(targetZ[0])-0.05 && _robot.GetToolPosition().z < float.Parse(targetZ[0])+0.05)
             {
                 messageToUser.text = "TARGET REACHED!!!";
             }
-        */
+        
         Vector2 toolPos   = new Vector2(_robot.GetToolPosition().x, _robot.GetToolPosition().y);
         Vector2 targetPos = new Vector2(target.transform.position.x, target.transform.position.y);
 
@@ -262,6 +262,6 @@ public class BurtBasics : MonoBehaviour
             Debug.Log("TARGET REACHED!!!");
         }
     }
-
+*/
 }
 
